@@ -24,7 +24,7 @@ In this lab, we will outline the implementation of on-premises Active Directory 
 You will first need to setup resources in Azure. Create a Domain Controller VM(Windows Server 2022) and name it "DC-1"
 </p>
 <p>
-<img src="https://imgur.com/6zE3Yl7.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/yl7C2IM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
@@ -32,7 +32,7 @@ You will first need to setup resources in Azure. Create a Domain Controller VM(W
 Now, set the Domain Controller's NIC Private IP address to be static. This is to prevent the IP address from changing and it will remain the same.
 </p>
 <p>
-<img src="https://imgur.com/NVQEGXI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/UMLtGgf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
@@ -40,7 +40,7 @@ Now, set the Domain Controller's NIC Private IP address to be static. This is to
 Next, create a Client VM (Windows 10) named Client-1. You are going to use the same Resource Group and Vnet that was created for the Domain Controller VM.
 </p>
 <p>
-<img src="https://imgur.com/cvx8ACQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/TbpUptm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
@@ -150,7 +150,7 @@ Head back to the Azure Portal and set Client-1's DNS settings to the DC's Privat
 In Azure Portal, restart Client-1. Log into Client-1 as the original local admin (labuser). Then go to settings, click on about, then click on "Rename this PC (advanced)" and join it to the domain. Once this is done, restart the computer.
 </p>
 <p>
-<img src="https://imgur.com/zOooa1h.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/lqWMnZw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
@@ -158,7 +158,7 @@ In Azure Portal, restart Client-1. Log into Client-1 as the original local admin
 Next, log into the Domain Controller and verify Client-1. Click on Active Directory Users and Computers, and inside the "Computers" container on the root of the domain you will find Client-1. Create a new Organizational Unit named _CLIENTS and drag Client-1 into there. 
 </p>
 <p>
-<img src="https://imgur.com/C4rS6Bm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/63aDjbG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
@@ -166,7 +166,7 @@ Next, log into the Domain Controller and verify Client-1. Click on Active Direct
 Now, log into Client-1 as "niadomain.com\jane_admin" and open system properties. Click Remote Desktop and allow "domain users" access to remote desktop. You can now log into Client-1 as a normal, non-administrative user. Normally you'd want to do this with Group Policy that allows you to change MANY systems at once (maybe a future lab).  
 </p>
 <p>
-<img src="https://imgur.com/9RkR0yI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/nYHZhN4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
@@ -174,7 +174,7 @@ Now, log into Client-1 as "niadomain.com\jane_admin" and open system properties.
 Log into DC-1 as jane_admin. Open PowerShell_ise as an administrator. Create a new File and paste the contents of this script provided in the lab (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) into PowerShell. You can make some adjustments to the script. You can change how many users it would create from 10,000 to 100 as shown below. Then run the script to see all the accounts that are being created. 
 </p>
 <p>
-<img src="https://imgur.com/qwsYab6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/5vcpabr.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
@@ -182,10 +182,10 @@ Log into DC-1 as jane_admin. Open PowerShell_ise as an administrator. Create a n
 Once the script is done creating users, open Active Directory Users and Computers to observe the accounts in the appropriate OU and attempt to log into Client-1 with one of the accounts (take note of the password in the script). 
 </p>
 <p>
-<img src="https://imgur.com/oKlCPiw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/qAo0XQY.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<img src="https://imgur.com/svZJCJ5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/TKLYy9I.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 <p>
